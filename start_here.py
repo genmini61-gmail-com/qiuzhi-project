@@ -216,13 +216,60 @@ def generate_creative(material):
     print()
     
     # 询问是否需要图像生成
-    api_key = os.getenv("GOOGLE_API_KEY")
+    api_key = os.getenv("GOOGLE_API_KEY") or os.getenv("GEMINI_API_KEY")
     if api_key:
         gen_image = input("🖼️  是否需要生成图像文件? (y/n): ").strip().lower()
         if gen_image == 'y':
-            print("\n🔧 准备生成图像文件...")
-            print(f"   命令: python .claude/skills/qiuzhi-creative/scripts/generate_image.py \"{result['creative_theme']}\" ./output")
-            print("   图像将保存在 ./output 目录中")
+            print("\n🔧 正在生成图像文件...")
+            import subprocess
+            from datetime import datetime
+            
+            # 创建输出目录
+            output_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "output")
+            os.makedirs(output_dir, exist_ok=True)
+            
+            # 生成带时间戳的文件名
+            timestamp = datetime.now().strftime("%Y-%m-%d-%H-%M-%S")
+            filename = f"{timestamp}-creative.png"
+            output_path = os.path.join(output_dir, filename)
+            
+            # 构建完整的 prompt
+            prompt = f"{result['creative_theme']}。{result.get('visual_style', '')} {result.get('main_elements', '')}"
+            
+            # 查找脚本路径
+            script_paths = [
+                os.path.join(os.path.dirname(os.path.abspath(__file__)), ".claude/skills/qiuzhi-creative/scripts/generate_image.py"),
+                os.path.expanduser("~/.openclaw/workspace/skills/qiuzhi-creative/scripts/generate_image.py"),
+            ]
+            script_path = None
+            for p in script_paths:
+                if os.path.exists(p):
+                    script_path = p
+                    break
+            
+            if script_path:
+                cmd = [
+                    "uv", "run", script_path,
+                    "--prompt", prompt,
+                    "--filename", output_path,
+                    "--resolution", "1K",
+                    "--api-key", api_key
+                ]
+                print(f"   Prompt: {prompt[:60]}...")
+                print(f"   输出路径: {output_path}")
+                try:
+                    result_proc = subprocess.run(cmd, capture_output=True, text=True, timeout=180)
+                    if result_proc.returncode == 0:
+                        print(f"\n✅ 图像生成成功！")
+                        print(f"   保存位置: {output_path}")
+                    else:
+                        print(f"\n❌ 图像生成失败: {result_proc.stderr}")
+                except subprocess.TimeoutExpired:
+                    print("\n⏰ 图像生成超时，请稍后重试")
+                except Exception as e:
+                    print(f"\n❌ 生成出错: {e}")
+            else:
+                print("❌ 未找到图像生成脚本，请确保已安装 qiuzhi-creative skill")
     else:
         print("💡 提示: 如需生成图像文件，请先设置 Google API 密钥")
         print("   命令: export GOOGLE_API_KEY='your_api_key_here'")
