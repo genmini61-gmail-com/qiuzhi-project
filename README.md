@@ -1,5 +1,5 @@
-# 求知项目 (Clawdbot Skill Demo)
-# Qiuzhi Project (Clawdbot Skill Demo)
+# 秋芝项目 (Clawdbot Skill Demo)
+# 秋芝餐厅 (Qiuzhi Restaurant) (Clawdbot Skill Demo)
 
 一个简单、易于 Fork 且支持 Codespace 的 Python 项目，用于演示 **Google Gemini API** 的集成。
 A simple, fork-able, and Codespace-ready Python project to demonstrate **Google Gemini API** integration.
