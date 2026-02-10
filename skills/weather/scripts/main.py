@@ -11,12 +11,20 @@ import json
 def get_weather(location):
     print(f"🔍 正在查询 {location} 的天气... (Searching weather for {location}...)")
     
-    # Simple city to coord map
+    # Expanded city to coord map
     coords = {
         "beijing": (39.9042, 116.4074),
         "shanghai": (31.2304, 121.4737),
         "guangzhou": (23.1291, 113.2644),
-        "shenzhen": (22.5431, 114.0579)
+        "shenzhen": (22.5431, 114.0579),
+        "la": (34.0522, -118.2437),
+        "los angeles": (34.0522, -118.2437),
+        "sydney": (-33.8688, 151.2093),
+        "new york": (40.7128, -74.0060),
+        "london": (51.5074, -0.1278),
+        "tokyo": (35.6895, 139.6917),
+        "paris": (48.8566, 2.3522),
+        "hong kong": (22.3193, 114.1694)
     }
     
     loc_key = location.lower().strip()
