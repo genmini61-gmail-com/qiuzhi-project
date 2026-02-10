@@ -4,21 +4,8 @@
 一个集成了 **Agent Skills 开发**、**创意生成** 与 **数字化运营** 的综合性实验平台。
 A comprehensive experimental platform integrating **Agent Skills development**, **creative generation**, and **digital operations**.
 
-不仅仅是餐厅管理，更是探索 AI Agent 能力边界的实战基地。
+不仅仅是餐厅 management，更是探索 AI Agent 能力边界的实战基地。
 More than just restaurant management—it's a practical base for exploring the boundaries of AI Agent capabilities.
-
----
-
-## 📊 技能逻辑流 (Skill Logic Flow)
-```mermaid
-graph TD
-    A[Start] --> B[Check Tools: weather, web_search]
-    B --> C{Input Valid?}
-    C -- Yes --> D[Execute weather Logic]
-    C -- No --> E[Return Error]
-    D --> F[Success Outcome]
-    F --> G[End]
-```
 
 ---
 
@@ -30,6 +17,17 @@ graph TD
 包含技能生成器 (Skill Builder)、概念教学及视觉创意生成工具。
 **Agent Skills Guide & Builder Engine**.
 Includes Skill Builder, concept tutorials, and visual creative generation tools.
+
+#### 📊 天气技能逻辑流 (Weather Skill Logic Flow)
+```mermaid
+graph TD
+    A[Start] --> B[Check Tools: weather, web_search]
+    B --> C{Input Valid?}
+    C -- Yes --> D[Execute weather Logic]
+    C -- No --> E[Return Error]
+    D --> F[Success Outcome]
+    F --> G[End]
+```
 
 ### 2. 🍽️ [秋芝餐厅 (Quizhi Restaurant)](./quizhi-restaurant/README.md)
 **实体运营与应用落地**。
