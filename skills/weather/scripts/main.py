@@ -10,7 +10,15 @@ import urllib.parse
 def get_weather(location):
     print(f"🔍 正在查询 {location} 的天气... (Searching weather for {location}...)")
     try:
-        # Use wttr.in for real weather data (no API key needed)
+        # Use Xray HTTP Proxy (10809) to avoid timeout in Codespace
+        proxy_handler = urllib.request.ProxyHandler({
+            'http': 'http://127.0.0.1:10809',
+            'https': 'http://127.0.0.1:10809'
+        })
+        opener = urllib.request.build_opener(proxy_handler)
+        urllib.request.install_opener(opener)
+
+        # Use wttr.in for real weather data
         # ?format=3 for single line or ?m for metric
         safe_location = urllib.parse.quote(location)
         url = f"https://wttr.in/{safe_location}?m&lang=zh-cn"
