@@ -39,14 +39,14 @@ The application is organized into the following clear sections:
     Skill definition.
 -   **处理 (Process)**：渲染为图形格式（如 Mermaid 图表、PNG）。
     Render to graphical format (e.g., Mermaid diagram, PNG).
--   **输出 (Output)**：可下载文件。
+-   **输出 (Output)**：可下载 file。
     Downloadable file.
 
 ---
 
 ## 📊 逻辑展示 Logic Visualization
 
-### 天气技能逻辑流 (Weather Skill Logic Flow)
+### 🌤️ 天气技能逻辑流 (Weather Skill Logic Flow)
 ```mermaid
 graph TD
     A[Start] --> B[Check Tools: weather, web_search]
@@ -55,4 +55,16 @@ graph TD
     C -- No --> E[Return Error]
     D --> F[Success Outcome]
     F --> G[End]
+```
+
+### 🍌 纳米香蕉画图逻辑流 (Nano Banana Art Logic Flow)
+```mermaid
+graph TD
+    A[Start] --> B[Check API Key]
+    B --> C{Key Valid?}
+    C -- No --> D[Prompt for Key]
+    C -- Yes --> E[Call Gemini Image API]
+    E --> F[Generate Image File]
+    F --> G[Save to output/ folder]
+    G --> H[End]
 ```
