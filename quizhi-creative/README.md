@@ -8,9 +8,9 @@ The functional hub of the project, responsible for coordinating, incubating, and
 
 ## 📂 技能矩阵 (Skill Matrix)
 
-1. **[🌤️ 天气查询技能 (Weather Skill)](../skills/weather/README.md)**
+1. **🌤️ [天气查询技能 (Weather Skill)](../skills/weather/README.md)**
    实时全球气象数据抓取。 (Real-time global weather data fetching.)
-2. **[🍌 纳米香蕉艺术 (Nano Banana)](../skills/nano_banana/README.md)**
+2. **🍌 [纳米香蕉艺术 (Nano Banana)](../skills/nano_banana/README.md)**
    AI 驱动的科技艺术创作。 (AI-driven tech-art creation.)
 
 ---
