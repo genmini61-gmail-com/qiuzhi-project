@@ -10,8 +10,8 @@ A comprehensive experimental platform integrating **Agent Skills development**, 
 
 ### 1. [🎨 秋芝创意中心 (Quizhi Creative Core)](./quizhi-creative/README.md)
 **Agent Skills 研发基地**。
-- [🌤️ 技能档案：天气查询逻辑流 (Weather Skill Logic Flow)](./skills/weather/README.md)
-- [🍌 技能档案：纳米香蕉画图逻辑流 (Nano Banana Art Logic Flow)](./skills/nano_banana/README.md)
+- 🌤️ [技能档案：天气查询逻辑流 (Weather Skill Logic Flow)](./skills/weather/README.md)
+- 🍌 [技能档案：纳米香蕉画图逻辑流 (Nano Banana Art Logic Flow)](./skills/nano_banana/README.md)
 
 ### 2. [🍽️ 秋芝餐厅 (Quizhi Restaurant)](./quizhi-restaurant/README.md)
 **实战落地：餐饮数字化运营 (Restaurant Operations)**。
